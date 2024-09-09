@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sky.com</title>
+    <link rel="shortcut icon" href="imagens/icon.png" type="image/x-icon">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap');
+
+        :root {
+            --color1: #559BD9;
+            --color2: #5FAAD9;
+            --color3: #94CEF2;
+            --color4: #D5E7F2;
+            --color5: #A2DCF2;
+
+            --font1: "Comfortaa";
+        }
+
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        body {
+            height: 100vh;
+        }
+
+        .div {
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(to bottom, var(--color1), var(--color3));
+            height: 100vh;
+
+            display: flex;
+        }
+
+        .container {
+            width: 400px;
+            height: 400px;
+            margin: auto;
+            display: block;
+            line-height: 200px;
+
+            border-radius: 20px 20px;
+            box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.167) ;
+
+            background: linear-gradient(to bottom, var(--color1), var(--color5));
+        }
+
+        #diasem {
+            font-family: var(--font1) ;
+            font-weight: 800;
+            font-size: 40px;
+            color: white;
+
+            text-align: center;
+            background-color: var(--color);
+            margin: auto;
+        }
+
+        #horas {
+            text-align: center;
+            font-family: var(--font1);
+            font-weight: 800;
+            font-size: 30px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="div">
+        <div class="container">
+            <p id="diasem">
+            </p>
+            <p id="horas">
+            </p>
+        </div>
+    </div>
+    <script>
+        var data = new Date()
+        var hora = data.getHours()
+
+        var teste = document.querySelector('.div')
+        var agora = new Date()
+        var dia = agora.getDay()
+
+        var diaSem = document.querySelector('#diasem')
+        var horas = document.querySelector('#horas')
+        
+        switch (dia) {
+            case 0:
+           diaSem.innerText = `Domingo`
+           horas.innerHTML = `${hora} horas`
+            break
+        case 1:
+            diaSem.innerHTML = `Segunda-Feira`
+            horas.innerHTML = `${hora} horas`
+            break
+        case 2:
+            diaSem.innerHTML = `Terca-Feira`
+            horas.innerHTML = `${hora} horas`
+            break
+        case 3:
+            diaSem.innerHTML = `Quarta-Feira`
+            horas.innerHTML = `${hora} horas`
+            break
+        case 4:
+            diaSem.innerHTML = `Quinta-Feira`
+            horas.innerHTML = `${hora} horas`
+            break
+        case 5:
+            diaSem.innerHTML = `Sexta-Feira`
+            horas.innerHTML = `${hora} horas`
+            break
+        case 6:
+            diaSem.innerHTML = `Sabado`
+            horas.innerHTML = `${hora} horas`
+            break
+        default: 
+            diaSem.innerHTMLt = `Dia invalido`
+            horas.innerHTML = `${hora} horas`
+            break
+        }
+
+        var container = document.querySelector('.container')
+
+        if (hora >= 18) {
+            teste.style.background = 'linear-gradient(to bottom, #2c3e50, #1c2833 )'
+            container.style.background = 'linear-gradient(to bottom, #2c3e50, #1c2833)'
+        }
+
+    </script>
+</body>
+</html>
