@@ -81,6 +81,12 @@
         var data = new Date()
         var hora = data.getHours()
 
+        var data2 = new Date()
+        var min = data2.getMinutes()
+
+        var data3 = new Date()
+        var sec = data3.getSeconds()
+
         var teste = document.querySelector('.div')
         var agora = new Date()
         var dia = agora.getDay()
@@ -95,7 +101,7 @@
             break
         case 1:
             diaSem.innerHTML = `Segunda-Feira`
-            horas.innerHTML = `${hora} horas`
+            horas.innerHTML = `${hora}:${min}:${sec} horas`
             break
         case 2:
             diaSem.innerHTML = `Terca-Feira`
