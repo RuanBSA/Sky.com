@@ -40,7 +40,7 @@
             height: 400px;
             margin: auto;
             display: block;
-            line-height: 200px;
+            line-height: 130px;
 
             border-radius: 20px 20px;
             box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.167) ;
@@ -48,10 +48,20 @@
             background: linear-gradient(to bottom, var(--color1), var(--color5));
         }
 
+        #saudacao {
+            font-family: var(--font1);
+            font-weight: 800;
+            font-size: 50px;
+            color: white;
+            margin-top: 20px;
+
+            text-align: center;
+        }
+
         #diasem {
             font-family: var(--font1) ;
             font-weight: 800;
-            font-size: 40px;
+            font-size: 24px;
             color: white;
 
             text-align: center;
@@ -63,7 +73,7 @@
             text-align: center;
             font-family: var(--font1);
             font-weight: 800;
-            font-size: 30px;
+            font-size: 35px;
             color: white;
         }
     </style>
@@ -71,9 +81,16 @@
 <body>
     <div class="div">
         <div class="container">
-            <p id="diasem">
+            <p id="saudacao">
+
             </p>
+            
+            <p id="diasem">
+
+            </p>
+            
             <p id="horas">
+
             </p>
         </div>
     </div>
@@ -83,9 +100,6 @@
 
         var data2 = new Date()
         var min = data2.getMinutes()
-
-        var data3 = new Date()
-        var sec = data3.getSeconds()
 
         var teste = document.querySelector('.div')
         var agora = new Date()
@@ -97,43 +111,55 @@
         switch (dia) {
             case 0:
            diaSem.innerText = `Domingo`
-           horas.innerHTML = `${hora} horas`
+           horas.innerHTML = `${hora}:${min}`
             break
         case 1:
             diaSem.innerHTML = `Segunda-Feira`
-            horas.innerHTML = `${hora}:${min}:${sec} horas`
+            horas.innerHTML = `${hora}:${min}`
             break
         case 2:
             diaSem.innerHTML = `Terca-Feira`
-            horas.innerHTML = `${hora} horas`
+            horas.innerHTML = `${hora}:${min}`
             break
         case 3:
             diaSem.innerHTML = `Quarta-Feira`
-            horas.innerHTML = `${hora} horas`
+            horas.innerHTML = `${hora}:${min}`
             break
         case 4:
             diaSem.innerHTML = `Quinta-Feira`
-            horas.innerHTML = `${hora} horas`
+            horas.innerHTML = `${hora}:${min}`
             break
         case 5:
             diaSem.innerHTML = `Sexta-Feira`
-            horas.innerHTML = `${hora} horas`
+            horas.innerHTML = `${hora}:${min}`
             break
         case 6:
             diaSem.innerHTML = `Sabado`
-            horas.innerHTML = `${hora} horas`
+            horas.innerHTML = `${hora}:${min}`
             break
         default: 
             diaSem.innerHTMLt = `Dia invalido`
-            horas.innerHTML = `${hora} horas`
+            horas.innerHTML = `${hora}:${min}`
             break
         }
+
+        var saudacao = document.querySelector('#saudacao')
+        if (hora <= 5) {
+            saudacao.innerHTML = `Boa Madrugada!`
+            saudacao.style.fontSize = '40px'
+        } else if (hora <= 11) {
+            saudacao.innerHTML = `Bom Dia!`
+        } else if (hora <= 18) {
+            saudacao.innerHTML = `Boa Tarde!`
+        } else {
+            saudacao.innerHTML = `Boa Noite!`
+        } 
 
         var container = document.querySelector('.container')
 
         if (hora >= 18) {
             teste.style.background = 'linear-gradient(to bottom, #2c3e50, #1c2833 )'
-            container.style.background = 'linear-gradient(to bottom, #2c3e50, #1c2833)'
+            container.style.background = 'linear-gradient(to bottom,  #1c2833, #0f1a23)'
         }
 
     </script>
