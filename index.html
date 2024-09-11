@@ -29,9 +29,7 @@
 
         .div {
             font-family: Arial, Helvetica, sans-serif;
-            background: linear-gradient(to bottom, var(--color1), var(--color3));
             height: 100vh;
-
             display: flex;
         }
 
@@ -45,7 +43,7 @@
             border-radius: 20px 20px;
             box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.167) ;
 
-            background: linear-gradient(to bottom, var(--color1), var(--color5));
+           
         }
 
         #saudacao {
@@ -54,7 +52,6 @@
             font-size: 50px;
             color: white;
             margin-top: 20px;
-
             text-align: center;
         }
 
@@ -65,7 +62,6 @@
             color: white;
 
             text-align: center;
-            background-color: var(--color);
             margin: auto;
         }
 
@@ -97,9 +93,8 @@
     <script>
         var data = new Date()
         var hora = data.getHours()
-
-        var data2 = new Date()
-        var min = data2.getMinutes()
+        var min = data.getMinutes()
+        min = min < 10 ? '0' + min : min
 
         var teste = document.querySelector('.div')
         var agora = new Date()
@@ -107,60 +102,61 @@
 
         var diaSem = document.querySelector('#diasem')
         var horas = document.querySelector('#horas')
+
+        var container = document.querySelector('.container')
         
         switch (dia) {
             case 0:
            diaSem.innerText = `Domingo`
-           horas.innerHTML = `${hora}:${min}`
             break
         case 1:
             diaSem.innerHTML = `Segunda-Feira`
-            horas.innerHTML = `${hora}:${min}`
             break
         case 2:
             diaSem.innerHTML = `Terca-Feira`
-            horas.innerHTML = `${hora}:${min}`
             break
         case 3:
             diaSem.innerHTML = `Quarta-Feira`
-            horas.innerHTML = `${hora}:${min}`
             break
         case 4:
             diaSem.innerHTML = `Quinta-Feira`
-            horas.innerHTML = `${hora}:${min}`
             break
         case 5:
             diaSem.innerHTML = `Sexta-Feira`
-            horas.innerHTML = `${hora}:${min}`
             break
         case 6:
             diaSem.innerHTML = `Sabado`
-            horas.innerHTML = `${hora}:${min}`
             break
         default: 
             diaSem.innerHTMLt = `Dia invalido`
-            horas.innerHTML = `${hora}:${min}`
             break
         }
 
-        var saudacao = document.querySelector('#saudacao')
-        if (hora <= 5) {
-            saudacao.innerHTML = `Boa Madrugada!`
-            saudacao.style.fontSize = '40px'
-        } else if (hora <= 11) {
-            saudacao.innerHTML = `Bom Dia!`
-        } else if (hora <= 18) {
-            saudacao.innerHTML = `Boa Tarde!`
+        horas.innerHTML = `${hora}:${min}`
+
+        var saudacao = document.querySelector('#saudacao');
+        if (hora < 6) {
+            saudacao.innerHTML = 'Boa Madrugada!';
+            saudacao.style.fontSize = '40px';
+            teste.style.background = 'linear-gradient(to bottom, #0b132b, #1c2541, #3a506b, #5bc0be, #6fffe9)';
+            container.style.background = 'linear-gradient(to bottom, #1b1f38, #2b3a67, #4a618d, #66b5c3, #84e1d8)';
+        } else if (hora < 12) {
+            saudacao.innerHTML = 'Bom Dia!';
+            teste.style.background = 'linear-gradient(to bottom, #559BD9, #A2DCF2)';
+            container.style.background = 'linear-gradient(to bottom, #559BD9, #94CEF2)';
+        } else if (hora < 18) {
+            saudacao.innerHTML = 'Boa Tarde!';
+            teste.style.background = 'linear-gradient(to bottom, #2c3e50, #1c2833)';
+            container.style.background = 'linear-gradient(to bottom, #1c2833, #0f1a2b)';
         } else {
-            saudacao.innerHTML = `Boa Noite!`
-        } 
-
-        var container = document.querySelector('.container')
-
-        if (hora >= 18) {
-            teste.style.background = 'linear-gradient(to bottom, #2c3e50, #1c2833 )'
-            container.style.background = 'linear-gradient(to bottom,  #1c2833, #0f1a23)'
+            saudacao.innerHTML = 'Boa Noite!';
+            teste.style.background = 'linear-gradient(to bottom, #283048, #859398)';
+            container.style.background = 'linear-gradient(to bottom, #3b3b3b, #2b2b2b)';
         }
+
+        
+
+        
 
     </script>
 </body>
